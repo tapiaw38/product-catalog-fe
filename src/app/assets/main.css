@@ -1,0 +1,23 @@
+@import 'base.css';
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--white);
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.button-primary {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.button-danger {
+    background-color: var(--danger);
+    color: var(--white);
+}
