@@ -9,6 +9,7 @@ import type { SectionBackgroundProps } from '../../components/shared/SectionBack
 import SectionBackground from '../../components/shared/SectionBackground/SectionBackground.vue'
 import TextAndImage from '../../components/animations/TextAndImage/TextAndImage.vue'
 import type { TextAndImageProps } from '../../components/animations/TextAndImage/TextAndImage.vue'
+import AppCard from '@/app/components/core/AppCard/AppCard.vue'
 
 const initproductSliders = ref<CarouselImageItem[]>([
     {
@@ -107,21 +108,31 @@ const allProductCarouselProps = ref<CarouselProps>({
 
 const firtSectionBackground = ref<SectionBackgroundProps>({
     color: '#f5f5f5',
-    image: 'https://img.freepik.com/fotos-premium/imagen-chica-coreana-impresionada-escuchando-historia-interesante-mirando-camara-intrigada-pie_1258-157702.jpg',
+    image: 'https://anabella-essence.s3.sa-east-1.amazonaws.com/assets/images/first_home_background.jpg',
     zize: '100% 100%',
     attachment: 'fixed',
     width: '100%',
-    height: '100vh'
+    height: '100vh',
+    opacity: 0.8
 })
 
-const secondSectionBackground = ref<TextAndImageProps>({
+const firstSectionContent = ref<TextAndImageProps>({
     text: [
         'Encontrar lo que te hace sentir',
         'Disfrutar de tus productos',
         'Conocer nuevos productos',
         'Aprender sobre nuestros productos'
-    ],
-    image: 'https://static.vecteezy.com/system/resources/previews/001/187/438/non_2x/heart-png.png'
+    ]
+})
+
+const secondSectionBackground = ref<SectionBackgroundProps>({
+    color: '#f5f5f5',
+    image: 'https://anabella-essence.s3.sa-east-1.amazonaws.com/assets/images/second_home_background.jpg',
+    zize: '100% 100%',
+    attachment: '',
+    width: '100%',
+    height: '100vh',
+    opacity: 0.8
 })
 </script>
 
@@ -183,8 +194,24 @@ const secondSectionBackground = ref<TextAndImageProps>({
             </template>
         </AppCarousel>
 
+        <SectionBackground
+            :color="firtSectionBackground.color"
+            :image="firtSectionBackground.image"
+            :zize="firtSectionBackground.zize"
+            :attachment="firtSectionBackground.attachment"
+            :width="firtSectionBackground.width"
+            :height="firtSectionBackground.height"
+            :opacity="firtSectionBackground.opacity"
+        >
+            <template #default>
+                <div class="absolute bottom-50 left-0 right-0 flex justify-between items-center">
+                    <TextAndImage :text="firstSectionContent.text" />
+                </div>
+            </template>
+        </SectionBackground>
+
         <div class="flex flex-row mb-2 justify-content-center align-content-center">
-            <p class="font-light text-xl text-center">Categoria</p>
+            <p class="font-light text-xl text-center">Indumentaria</p>
         </div>
 
         <AppCarousel
@@ -212,7 +239,7 @@ const secondSectionBackground = ref<TextAndImageProps>({
         </AppCarousel>
 
         <div class="flex flex-row mb-2 justify-content-center align-content-center">
-            <p class="font-light text-xl text-center">Indumentaria</p>
+            <p class="font-light text-xl text-center">Carteras</p>
         </div>
 
         <AppCarousel
@@ -246,41 +273,23 @@ const secondSectionBackground = ref<TextAndImageProps>({
         </div>
 
         <SectionBackground
-            :color="firtSectionBackground.color"
-            :image="firtSectionBackground.image"
-            :zize="firtSectionBackground.zize"
-            :attachment="firtSectionBackground.attachment"
-            :width="firtSectionBackground.width"
-            :height="firtSectionBackground.height"
+            :color="secondSectionBackground.color"
+            :image="secondSectionBackground.image"
+            :zize="secondSectionBackground.zize"
+            :attachment="secondSectionBackground.attachment"
+            :width="secondSectionBackground.width"
+            :height="secondSectionBackground.height"
+            :opacity="secondSectionBackground.opacity"
         >
             <template #default>
-                <div class="absolute bottom-50 left-0 right-0 flex justify-between items-center">
-                    <TextAndImage :text="secondSectionBackground.text" />
+                <div class="absolute bottom-50 left-50 right-0 flex justify-between items-center">
+                    <AppCard
+                        title="Anabella Essence"
+                        content="Elegante para todo momento y para toda ocacion"
+                    />
                 </div>
             </template>
         </SectionBackground>
-
-        <div class="flex flex-row justify-center mb-2 h-9rem">
-            <div class="container-product-discount">
-                <div class="flex flex-row justify-center align-items-center">
-                    <div class="discount-container">
-                        <img src="" alt="Discount" />
-                    </div>
-                    <div class="discount-container">
-                        <p class="discount-text">
-                            <span class="discount-text-span">Descuento</span>
-                            <span class="discount-text-span">20%</span>
-                        </p>
-                    </div>
-                    <div class="discount-container">
-                        <p class="discount-text">
-                            <span class="discount-text-span">Descuento</span>
-                            <span class="discount-text-span">20%</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </template>
 

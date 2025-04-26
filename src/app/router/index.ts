@@ -23,6 +23,18 @@ const router = createRouter({
                         )
                 }
             ]
+        },
+        {
+            path: '/auth',
+            component: AppLayout,
+            children: [
+                {
+                    path: '',
+                    name: 'auth',
+                    component: () =>
+                        import(/* webpackChunkName: "AuthView" */ '../views/AuthView/AuthView.vue')
+                }
+            ]
         }
     ]
 })

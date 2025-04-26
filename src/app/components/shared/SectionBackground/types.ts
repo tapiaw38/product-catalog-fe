@@ -5,4 +5,5 @@ export interface SectionBackgroundProps {
     attachment?: string
     width: string
     height: string
+    opacity?: number
 }

@@ -15,7 +15,8 @@ const props = defineProps<SectionBackgroundProps>()
             backgroundPosition: 'center',
             backgroundAttachment: props.attachment,
             width: props.width,
-            height: props.height
+            height: props.height,
+            opacity: props.opacity
         }"
     >
         <slot></slot>
